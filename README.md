@@ -1,6 +1,6 @@
-# {{ cookies-consent.app_full_name }}
+# cookies-consent
 
-{{ cookies-consent.description }}
+This is temporary repository for testing common components
 
 ## Getting Started
 
