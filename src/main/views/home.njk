@@ -1,5 +1,9 @@
 {% extends "template.njk" %}
 
+{% from "shared-component/components/cookie-banner/cookie.njk" import
+  govukCookie
+%}
+
 {% block content %}
-  <h1 class="govuk-heading-xl">Default page template 123</h1>
+    {{ govukCookie() }}
 {% endblock %}
