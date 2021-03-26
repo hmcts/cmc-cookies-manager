@@ -61,7 +61,7 @@
     "@types/jest": "^26.0.13",
     "@types/mini-css-extract-plugin": "^0.9.1",
     "@types/supertest": "^2.0.8",
-    "@types/webpack-dev-middleware": "^3.7.0",
+    "@types/webpack-dev-middleware": "^4.1.2",
     "@typescript-eslint/eslint-plugin": "^2.19.2",
     "@typescript-eslint/eslint-plugin-tslint": "^2.19.2",
     "@typescript-eslint/parser": "^2.19.2",
