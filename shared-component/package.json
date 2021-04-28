@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/hmcts/cmc-cookies-manager/issues"
   },
-  "homepage": "https://github.com/hmcts/cmc-cookies-manager#readme"
+  "homepage": "https://github.com/hmcts/cmc-cookies-manager#readme",
+  "dependencies": {
+    "govuk-frontend": "^3.11.0"
+  }
 }
