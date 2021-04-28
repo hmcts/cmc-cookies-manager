@@ -1,145 +1,91 @@
-# cookies-consent
+# GOV.UK Frontend
 
-This is temporary repository for testing common components
+GOV.UK Frontend contains the code you need to start building a user interface
+for government platforms and services.
 
-## Getting Started
+See live examples of GOV.UK Frontend components, and guidance on when to use
+them in your service, in the [GOV.UK Design System](https://www.gov.uk/design-system).
 
-### Prerequisites
+## Contact the team
 
-Running the application requires the following tools to be installed in your environment:
+GOV.UK Frontend is maintained by a team at Government Digital Service. If you want to know more about GOV.UK Frontend, please email the [Design System
+team](mailto:govuk-design-system-support@digital.cabinet-office.gov.uk) or get in touch with them on [Slack](https://ukgovernmentdigital.slack.com/messages/govuk-design-system).
 
-  * [Node.js](https://nodejs.org/) v12.0.0 or later
-  * [yarn](https://yarnpkg.com/)
-  * [Docker](https://www.docker.com)
+## Quick start
 
-### Running the application
+There are 2 ways to start using GOV.UK Frontend in your app.
 
-Install dependencies by executing the following command:
+Once installed, you will be able to use the code from the examples in the
+[GOV.UK Design System](https://www.gov.uk/design-system) in your service.
 
- ```bash
-$ yarn install
- ```
-Bundle:
+### 1. Install with npm (recommended)
 
-```bash
-$ yarn webpack
+We recommend [installing GOV.UK Frontend using node package manager
+(npm)](https://frontend.design-system.service.gov.uk/installing-with-npm/).
+
+### 2. Install by using compiled files
+
+You can also [download the compiled and minified assets (CSS, JavaScript) from
+GitHub](https://frontend.design-system.service.gov.uk/installing-from-dist/).
+
+## Importing styles
+
+You need to import the GOV.UK Frontend styles into the main Sass file in your
+project. You should place the below code before your own Sass rules (or Sass
+imports) if you want to override GOV.UK Frontend with your own styles.
+
+To import add the below to your Sass file:
+
+  ```scss
+  @import "node_modules/govuk-frontend/govuk/all";
+  ```
+
+[More details on importing styles](https://frontend.design-system.service.gov.uk/importing-css-assets-and-javascript/#css)
+
+## Importing JavaScript
+
+Some of the JavaScript included in GOV.UK Frontend improves the usability and
+accessibility of the components. You should make sure that you are importing and
+initialising Javascript in your application to ensure that all users can use it successfully.
+
+You can include Javascript for all components either by copying the `all.js` from `node_modules/govuk-frontend/govuk/` into your application or referencing the file directly:
+
+```html
+<script src="<path-to-govuk-frontend-all-file>/all.js"></script>
+```
+Next you need to initialise the script by adding:
+
+```html
+<script>window.GOVUKFrontend.initAll()</script>
 ```
 
-Run:
-
-```bash
-$ yarn start
-```
-
-The applications's home page will be available at https://localhost:3000
-
-### Running with Docker
-
-Create docker image:
-
-```bash
-  docker-compose build
-```
-
-Run the application by executing the following command:
-
-```bash
-  docker-compose up
-```
-
-This will start the frontend container exposing the application's port
-(set to `3000` in this template app).
-
-In order to test if the application is up, you can visit https://localhost:3000 in your browser.
-You should get a very basic home page (no styles, etc.).
-
-## Developing
-
-### Code style
-
-We use [ESLint](https://github.com/typescript-eslint/typescript-eslint)
-alongside [sass-lint](https://github.com/sasstools/sass-lint)
-
-Running the linting with auto fix:
-```bash
-$ yarn lint --fix
-```
-
-### Running the tests
-
-This template app uses [Jest](https://jestjs.io//) as the test engine. You can run unit tests by executing
-the following command:
-
-```bash
-$ yarn test
-```
-
-Here's how to run functional tests (the template contains just one sample test):
-
-```bash
-$ yarn test:routes
-```
-
-Running accessibility tests:
-
-```bash
-$ yarn test:a11y
-```
-
-Make sure all the paths in your application are covered by accessibility tests (see [a11y.ts](src/test/a11y/a11y.ts)).
-
-### Security
-
-#### CSRF prevention
-
-[Cross-Site Request Forgery](https://github.com/pillarjs/understanding-csrf) prevention has already been
-set up in this template, at the application level. However, you need to make sure that CSRF token
-is present in every HTML form that requires it. For that purpose you can use the `csrfProtection` macro,
-included in this template app. Your njk file would look like this:
-
-{% raw -%}
-```
-{% from "macros/csrf.njk" import csrfProtection %}
-...
-<form ...>
-  ...
-    {{ csrfProtection(csrfToken) }}
-  ...
-</form>
-...
-```
-{% endraw -%}
-
-#### Helmet
-
-This application uses [Helmet](https://helmetjs.github.io/), which adds various security-related HTTP headers
-to the responses. Apart from default Helmet functions, following headers are set:
-
-* [Referrer-Policy](https://helmetjs.github.io/docs/referrer-policy/)
-* [Content-Security-Policy](https://helmetjs.github.io/docs/csp/)
-
-There is a configuration section related with those headers, where you can specify:
-* `referrerPolicy` - value of the `Referrer-Policy` header
+[More details on importing Javascript and advanced options](https://frontend.design-system.service.gov.uk/importing-css-assets-and-javascript/#javascript)
 
 
-Here's an example setup:
+## Importing assets
 
-```json
-    "security": {
-      "referrerPolicy": "origin",
-    }
-```
+In order to import GOV.UK Frontend images and fonts to your project, you should configure your application to reference or copy the relevant GOV.UK Frontend assets.
 
-Make sure you have those values set correctly for your application.
+[More details on importing assets](https://frontend.design-system.service.gov.uk/importing-css-assets-and-javascript/#font-and-image-assets)
 
-### Healthcheck
 
-The application exposes a health endpoint (https://localhost:3000/health), created with the use of
-[Nodejs Healthcheck](https://github.com/hmcts/nodejs-healthcheck) library. This endpoint is defined
-in [health.ts](src/main/routes/health.ts) file. Make sure you adjust it correctly in your application.
-In particular, remember to replace the sample check with checks specific to your frontend app,
-e.g. the ones verifying the state of each service it depends on.
+## Getting updates
 
-## License
+To be notified when there’s a new release, you can either:
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+- [watch the govuk-frontend Github repository](https://help.github.com/en/articles/watching-and-unwatching-repositories)
+- join the [#govuk-design-system channel on cross-government Slack](https://ukgovernmentdigital.slack.com/app_redirect?channel=govuk-design-system)
+
+Find out how to [update with npm](https://frontend.design-system.service.gov.uk/updating-with-npm/).
+
+## Licence
+
+Unless stated otherwise, the codebase is released under the MIT License. This
+covers both the codebase and any sample code in the documentation. The
+documentation is &copy; Crown copyright and available under the terms of the
+Open Government 3.0 licence.
+
+## Contribution guidelines
+
+If you want to help us build GOV.UK Frontend, view our [contribution
+guidelines](https://github.com/alphagov/govuk-frontend/blob/master/CONTRIBUTING.md).
