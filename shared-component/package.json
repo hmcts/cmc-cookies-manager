@@ -1,6 +1,6 @@
 {
-  "name": "@hmcts/cmc-cookies-manager",
-  "version": "1.0.0",
+  "name": "cmc-cookies-manager",
+  "version": "1.0.1",
   "description": "Cookie Manager is a library for dealing with cookie compliance",
   "main": "all.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/hmcts/cmc-cookies-manager.git"
   },
   "keywords": [
-    "CMC",
+    "HMCTS",
     "Cookies"
   ],
   "author": "HM Courts and Tribunals",
