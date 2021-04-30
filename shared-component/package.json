@@ -1,6 +1,6 @@
 {
   "name": "cmc-cookies-manager",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "description": "Cookie Manager is a library for dealing with cookie compliance",
   "main": "all.js",
   "scripts": {
@@ -22,5 +22,6 @@
   "homepage": "https://github.com/hmcts/cmc-cookies-manager#readme",
   "dependencies": {
     "govuk-frontend": "^3.11.0"
-  }
+  },
+  "devDependencies": {}
 }

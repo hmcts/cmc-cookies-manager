@@ -27,7 +27,7 @@ function setAcceptAllCookies() {
 function setRejectAllCookies() {
     setCookie('cookies_preferences_set', true, 365)
     setCookie('cookies_policy', '{"essential":true,"usage":false}', 365)
-    document.getElementById("accept-all-cookies-success").classList.remove("govuk-visually-hidden");
+    document.getElementById("reject-all-cookies-success").classList.remove("govuk-visually-hidden");
     document.getElementById("cm_cookie_notification").classList.add("govuk-visually-hidden");
 }
 

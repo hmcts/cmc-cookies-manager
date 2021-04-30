@@ -1,7 +1,6 @@
-
-{% from "shared-component/components/cookie-banner/macro.njk" import govukCookieBanner %}
-{% include "shared-component/components/cookie-manager/cookie-success-all-banner.njk" %}
-{% include "shared-component/components/cookie-manager/cookie-reject-all-banner.njk" %}
+{% from "../cookie-banner/macro.njk" import govukCookieBanner %}
+{% include "./cookie-success-all-banner.njk" %}
+{% include "./cookie-reject-all-banner.njk" %}
 <div id="cm_cookie_notification" class="govuk-visually-hidden">
 {% set html %}
   <p class="govuk-body">We use some essential cookies to make this service work.</p>
