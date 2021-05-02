@@ -31,9 +31,9 @@ nunjucksEnv.addGlobal('serviceName', `Money Claims`)
 NPM
 
 ```bash
-npm i github:hmcts/cmc-cookies-manager#1.2.0
+npm i github:hmcts/cmc-cookies-manager#2.0.0
 ```
-**** Always use the latest release in above npm command (insted of #1.2.0 use latest release version).
+**** Always use the latest release in above npm command (insted of #2.0.0 use latest release version).
 
 ## Usage
 
