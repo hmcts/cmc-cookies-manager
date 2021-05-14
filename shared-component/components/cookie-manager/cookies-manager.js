@@ -1,6 +1,8 @@
 (function () {
     checkCookie()
-    document.getElementById("save-cookie-preferences").onclick = function () { setCookiePreference() };
+    if (document.getElementById('save-cookie-preferences')) {
+      document.getElementById("save-cookie-preferences").onclick = function () { setCookiePreference() };
+    }
     document.getElementById("cookie-accept-submit").onclick = function () { setAcceptAllCookies() };
     document.getElementById("cookie-reject-submit").onclick = function () { setRejectAllCookies() };
     document.getElementById('cookie-accept-all-success-banner-hide').onclick = function(){
