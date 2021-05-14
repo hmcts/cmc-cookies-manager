@@ -44,22 +44,22 @@ example :
 ```javascript
 function copyCookieBanner() {
   gulp.src([
-    `./node_modules/cmc-cookies-manager/components/cookie-manager/**/*.js`
+    `./node_modules/cmc-cookies-manager/shared-component/components/cookie-manager/**/*.js`
   ])
     .pipe(gulp.dest(`${assetsDirectory}/js/`))
 
   gulp.src([
-    `./node_modules/cmc-cookies-manager/components/cookie-manager/**/*.njk`
+    `./node_modules/cmc-cookies-manager/shared-component/components/cookie-manager/**/*.njk`
   ])
     .pipe(gulp.dest(`${appDirectory}/cookie-manager/`))
 
   gulp.src([
-    `./node_modules/cmc-cookies-manager/components/button/**/*.*`
+    `./node_modules/cmc-cookies-manager/shared-component/components/button/**/*.*`
   ])
     .pipe(gulp.dest(`${appDirectory}/button/`))
 
   gulp.src([
-    `./node_modules/cmc-cookies-manager/components/cookie-banner/**/*.*`
+    `./node_modules/cmc-cookies-manager/shared-component/components/cookie-banner/**/*.*`
   ])
     .pipe(gulp.dest(`${appDirectory}/cookie-banner/`))
 }
