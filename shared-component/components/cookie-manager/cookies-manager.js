@@ -17,7 +17,9 @@ function setCookiePreference() {
     var getAnalyticsSelectedValue = document.querySelector('input[name="analytics"]:checked');
     var getApmSelectedValue = document.querySelector('input[name="apm"]:checked');
     setCookie('cookies_preferences_set', true, 365)
-    setCookie('cookies_policy', '{"essential":true,"analytics":' + getAnalyticsSelectedValue.value + ',"apm:"' + getApmSelectedValue.value, 365)
+    setCookie('cookies_policy', '{"essential":true,"analytics":' + getAnalyticsSelectedValue.value
+                                + ',"apm:"' + getApmSelectedValue.value
+                                + '}', 365)
     document.getElementById("cookie-preference-success").classList.remove("govuk-visually-hidden");
 }
 
@@ -84,7 +86,7 @@ function checkCookie() {
         $("#radio-analytics-off").attr('checked', true);
     }
 
-    if (cookies_policy.split(',')[1].split(':')[1] == 'true')
+    if (cookies_policy.split(',')[2].split(':')[1].includes('true'))
     {
         $("#radio-apm-off").attr('checked', false);
         $("#radio-apm-on").attr('checked', true);
