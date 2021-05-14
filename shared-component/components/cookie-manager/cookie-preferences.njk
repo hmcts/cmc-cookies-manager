@@ -12,7 +12,8 @@
           <h2 class="govuk-heading-l">How cookies are used in this service</h2>
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="hint-ga">
-              <h3 class="govuk-heading-m">To measure website use</h3>
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">To measure website use</legend>
+              <div class="gem-c-hint govuk-hint govuk-!-margin-bottom-3">
                 <p class="govuk-body-m">
                    We use Google Analytics software to collect information about how you use this service.
                    We do this to help make sure the service is meeting the needs of its users and to help
@@ -51,26 +52,30 @@
                     </tr>
                   </tbody>
                 </table>
-                <div class="govuk-form-group">
-                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Allow cookies that measure website use?</legend>
-                  <div class="govuk-radios govuk-radios">
-                    <div class="govuk-radios__item">
-                       <input type="radio" name="analytics" id="radio-analytics-on" value="true" class="govuk-radios__input">
-                         <label for="radio-analytics-on" class="govuk-label govuk-radios__label" id="radio-analytics-on-label">
-                          <span>Use cookies that measure my website use</span>
-                         </label>
-                       </input>
-                    </div>
-                    <div class="govuk-radios__item">
-                       <input type="radio" name="analytics" id="radio-analytics-off" value="false" class="govuk-radios__input" checked="checked">
-                         <label for="radio-analytics-off" class="govuk-label govuk-radios__label" id="radio-analytics-off-label">
-                          <span>Do not use cookies that measure my website use</span>
-                         </label>
-                       </input>
-                    </div>
-                  </div>
+              </div>
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Allow cookies that measure website use?</legend>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                   <input type="radio" name="analytics" id="radio-analytics-on" value="true" class="govuk-radios__input">
+                     <label for="radio-analytics-on" class="govuk-label govuk-radios__label" id="radio-analytics-on-label">
+                      <span>Use cookies that measure my website use</span>
+                     </label>
+                   </input>
                 </div>
-                <h3 class="govuk-heading-m">To measure application performance</h3>
+                <div class="govuk-radios__item">
+                   <input type="radio" name="analytics" id="radio-analytics-off" value="false" class="govuk-radios__input" checked="checked">
+                     <label for="radio-analytics-off" class="govuk-label govuk-radios__label" id="radio-analytics-off-label">
+                      <span>Do not use cookies that measure my website use</span>
+                     </label>
+                   </input>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="hint-ga">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">To measure application performance</legend>
+              <div class="gem-c-hint govuk-hint govuk-!-margin-bottom-3">
                 <p class="govuk-body-m">
                   We use Dynatrace Software Intelligence Platform to provide an Application Performance Monitoring Service
                   to collect information about how you use HMCTS services. We do this to monitor HMCTS services in order
@@ -139,25 +144,24 @@
                    </tr>
                  </tbody>
                 </table>
-                <div class="govuk-form-group">
-                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Allow cookies that measure website application performance monitoring?</legend>
-                 <div class="govuk-radios govuk-radios">
-                   <div class="govuk-radios__item">
-                      <input type="radio" name="apm" id="radio-apm-on" value="true" class="govuk-radios__input">
-                        <label for="radio-apm-on" class="govuk-label govuk-radios__label" id="radio-apm-on-label">
-                         <span>Use cookies that measure website application performance monitoring</span>
-                        </label>
-                      </input>
-                   </div>
-                   <div class="govuk-radios__item">
-                      <input type="radio" name="apm" id="radio-apm-off" value="false" class="govuk-radios__input" checked="checked">
-                        <label for="radio-apm-off" class="govuk-label govuk-radios__label" id="radio-apm-off-label">
-                         <span>Do not use cookies that measure website application performance monitoring</span>
-                        </label>
-                      </input>
-                   </div>
+              </div>
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Allow cookies that measure website application performance monitoring?</legend>
+              <div class="govuk-radios govuk-radios--inline u-margin-top-30">
+                 <div class="govuk-radios__item">
+                    <input type="radio" name="apm" id="radio-apm-on" value="true" class="govuk-radios__input">
+                      <label for="radio-apm-on" class="govuk-label govuk-radios__label" id="radio-apm-on-label">
+                       <span>Use cookies that measure website application performance monitoring</span>
+                      </label>
+                    </input>
                  </div>
-                </div>
+                 <div class="govuk-radios__item">
+                    <input type="radio" name="apm" id="radio-apm-off" value="false" class="govuk-radios__input" checked="checked">
+                      <label for="radio-apm-off" class="govuk-label govuk-radios__label" id="radio-apm-off-label">
+                       <span>Do not use cookies that measure website application performance monitoring</span>
+                      </label>
+                    </input>
+                 </div>
+              </div>
             </fieldset>
           </div>
           <h3 class="govuk-heading-m">Essential cookies</h3>
