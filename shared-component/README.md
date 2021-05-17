@@ -54,6 +54,11 @@ function copyCookieBanner() {
     .pipe(gulp.dest(`${appDirectory}/cookie-manager/`))
 
   gulp.src([
+    `./node_modules/cmc-cookies-manager/components/button/**/*.*`
+  ])
+    .pipe(gulp.dest(`${appDirectory}/button/`))
+
+  gulp.src([
     `./node_modules/cmc-cookies-manager/components/cookie-banner/**/*.*`
   ])
     .pipe(gulp.dest(`${appDirectory}/cookie-banner/`))
