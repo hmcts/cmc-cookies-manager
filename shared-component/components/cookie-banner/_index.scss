@@ -19,8 +19,10 @@
 
   // Support older browsers which don't hide elements with the `hidden` attribute
   // when user hides the whole cookie banner with a 'Hide' button.
-  .govuk-cookie-banner[hidden] {
-    display: none;
+  .govuk-cookie-banner {
+    &[hidden] {
+      display: none;
+    }
   }
 
   .govuk-cookie-banner__message {
