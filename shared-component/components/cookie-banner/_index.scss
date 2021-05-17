@@ -1,4 +1,4 @@
-@include govuk-exports("govuk/component/cookie-banner") {
+@include govuk-exports('govuk/component/cookie-banner') {
 
   // This needs to be kept in sync with the header component's styles
   $border-bottom-width: govuk-spacing(2);
@@ -6,7 +6,7 @@
   .govuk-cookie-banner {
     @include govuk-font($size: 19);
 
-    background-color: govuk-colour("light-grey", $legacy: "grey-3");
+    background-color: govuk-colour('light-grey', $legacy: 'grey-3');
     // The component does not set bottom spacing.
     // The bottom spacing should be created by the items inside the component.
 
