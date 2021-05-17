@@ -112,7 +112,7 @@ function checkCookie() {
 }
 
 function manageAnalyticsCookies(cookieStatus) {
-  if(cookieStatus === 'false') {
+  if(cookieStatus === false) {
     deleteCookie('_ga')
     deleteCookie('_gid')
     deleteCookie('_gat')
@@ -135,8 +135,23 @@ function manageAPMCookie(cookieStatus) {
       deleteCookie('rxVisitor')
       deleteCookie('rxvt')
     }
+    apmPreferencesUpdated(cookieStatus)
 }
 
 function deleteCookie(cookie_name) {
     document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;';
-};
+}
+
+function apmPreferencesUpdated(cookieStatus) {
+  const dtrum = window.dtrum;
+
+  if(dtrum !== undefined) {
+    if(cookieStatus === 'true') {
+      dtrum.enable();
+      dtrum.enableSessionReplay();
+    } else {
+      dtrum.disableSessionReplay();
+      dtrum.disable();
+    }
+  }
+}
