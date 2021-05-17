@@ -24,24 +24,24 @@
   .govuk-button {
     @include govuk-font($size: 19, $line-height: 19px);
 
-    box-sizing: border-box;
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    margin-top: 0;
-    margin-right: 0;
-    margin-left: 0;
-    @include govuk-responsive-margin(6, 'bottom', $adjustment: $button-shadow-size); // s2
-    padding: (govuk-spacing(2) - $govuk-border-width-form-element) govuk-spacing(2) (govuk-spacing(2) - $govuk-border-width-form-element - ($button-shadow-size / 2)); // s1
+    -webkit-appearance: none;
+    background-color: $govuk-button-colour;
     border: $govuk-border-width-form-element solid transparent;
     border-radius: 0;
-    color: $govuk-button-text-colour;
-    background-color: $govuk-button-colour;
     box-shadow: 0 $button-shadow-size 0 $govuk-button-shadow-colour; // s0
+    box-sizing: border-box;
+    color: $govuk-button-text-colour;
+    cursor: pointer;
+    display: inline-block;
+    @include govuk-responsive-margin(6, 'bottom', $adjustment: $button-shadow-size); // s2
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding: (govuk-spacing(2) - $govuk-border-width-form-element) govuk-spacing(2) (govuk-spacing(2) - $govuk-border-width-form-element - ($button-shadow-size / 2)); // s1
+    position: relative;
     text-align: center;
     vertical-align: top;
-    cursor: pointer;
-    -webkit-appearance: none;
+    width: 100%;
 
     @include govuk-if-ie8 {
       border-bottom: $button-shadow-size solid $govuk-button-shadow-colour;
@@ -62,8 +62,8 @@
 
     // Fix unwanted button padding in Firefox
     &::-moz-focus-inner {
-      padding: 0;
       border: 0;
+      padding: 0;
     }
 
     &:hover {
@@ -90,8 +90,8 @@
       }
       // Since Internet Explorer does not support `:not()` we set a clearer focus style to match user-agent outlines.
       @include govuk-if-ie8 {
-        color: $govuk-focus-text-colour;
         background-color: $govuk-focus-colour;
+        color: $govuk-focus-text-colour;
       }
       box-shadow: inset 0 0 0 1px $govuk-focus-colour;
     }
@@ -108,10 +108,10 @@
     }
 
     &:focus:not(:active):not(:hover) {
-      border-color: $govuk-focus-colour;
-      color: $govuk-focus-text-colour;
       background-color: $govuk-focus-colour;
+      border-color: $govuk-focus-colour;
       box-shadow: 0 2px 0 $govuk-focus-text-colour;
+      color: $govuk-focus-text-colour;
     }
 
     // The following adjustments do not work for <input type="button"> as
@@ -120,17 +120,14 @@
     // Use a pseudo element to expand the click target area to include the
     // button's shadow as well, in case users try to click it.
     &:before {
+      background: transparent;
+      bottom: -($govuk-border-width-form-element + $button-shadow-size);
       content: '';
       display: block;
-
-      position: absolute;
-
-      top: -$govuk-border-width-form-element;
-      right: -$govuk-border-width-form-element;
-      bottom: -($govuk-border-width-form-element + $button-shadow-size);
       left: -$govuk-border-width-form-element;
-
-      background: transparent;
+      position: absolute;
+      right: -$govuk-border-width-form-element;
+      top: -$govuk-border-width-form-element;
     }
 
     // When the button is active it is shifted down by $button-shadow-size to
@@ -240,30 +237,26 @@
     @include govuk-typography-responsive($size: 24, $override-line-height: 1);
 
     display: -webkit-inline-box;
-
     display: -ms-inline-flexbox;
-
     display: inline-flex;
+    justify-content: center;
     min-height: auto;
-
     -webkit-box-pack: center;
-
-        -ms-flex-pack: center;
-
-            justify-content: center;
+    -ms-flex-pack: center;
   }
 
   .govuk-button__start-icon {
+    align-self: center;
+    flex-shrink: 0;
     margin-left: govuk-spacing(1);
+    -ms-flex-negative: 0;
+    -ms-flex-item-align: center;
 
-    @include govuk-media-query($from: desktop) {
+    @include govuk desktop) {
       margin-left: govuk-spacing(2);
     }
+
     vertical-align: middle;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
-    -ms-flex-item-align: center;
-        align-self: center;
   }
 
   @if $govuk-use-legacy-font {
@@ -271,8 +264,8 @@
     $offset: 2;
 
     .govuk-button {
-      padding-top: (govuk-spacing(2) - $govuk-border-width-form-element - ($button-shadow-size / 2) + $offset); // s1
       padding-bottom: (govuk-spacing(2) - $govuk-border-width-form-element - ($button-shadow-size / 2) - $offset + 1); // s1
+      padding-top: (govuk-spacing(2) - $govuk-border-width-form-element - ($button-shadow-size / 2) + $offset); // s1
     }
 
     .govuk-button__start-icon {
