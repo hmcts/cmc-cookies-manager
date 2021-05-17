@@ -100,16 +100,6 @@ Create a new webpage called `cookies.njk` and include `cookie-preferences.njk` t
   </div>
 ```
 
-Create a new webpage called `cookies.njk` and include `cookies-details.njk` this will enable cookies preference page
-
-```html
-  <div class="grid-row">
-    <div class="govuk-!-margin-left-4">
-      {% include "../common/components/imported/cookie-manager/cookie-details.njk" %}
-    </div>
-  </div>
-```
-
 Now your application is fully configured.
 
 ### Cookies Preference details
