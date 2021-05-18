@@ -41,7 +41,7 @@ function setRejectAllCookies() {
     setCookie('cookies_policy', '{"essential":true,"analytics":false,"apm":false}', 365)
     document.getElementById("accept-all-cookies-success").classList.remove("govuk-visually-hidden");
     document.getElementById("cm_cookie_notification").classList.add("govuk-visually-hidden");
-    manageAnalyticsCookies(false)
+    manageAnalyticsCookies('false')
     manageAPMCookie('false')
 }
 
@@ -96,7 +96,7 @@ function checkCookie() {
     } else {
         $("#radio-analytics-on").attr('checked', false);
         $("#radio-analytics-off").attr('checked', true);
-        manageAnalyticsCookies(false)
+        manageAnalyticsCookies('false')
     }
 
     if (cookies_policy.split(',')[2].split(':')[1].includes('true'))
@@ -112,7 +112,7 @@ function checkCookie() {
 }
 
 function manageAnalyticsCookies(cookieStatus) {
-  if(cookieStatus === false) {
+  if(cookieStatus === 'false') {
     deleteCookie('_ga')
     deleteCookie('_gid')
     deleteCookie('_gat')
@@ -139,7 +139,31 @@ function manageAPMCookie(cookieStatus) {
 }
 
 function deleteCookie(cookie_name) {
+    deleteCookieWithoutDomain(cookie_name);
+    deleteCookieFromCurrentAndUpperDomain(cookie_name);
+}
+
+function deleteCookieWithoutDomain(cookie_name) {
     document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;';
+}
+
+function deleteCookieFromCurrentAndUpperDomain(cookie_name) {
+    let hostname = window.location.hostname;
+    let dotHostname = "." + hostname;
+    document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain='+ hostname +';path=/;';
+    document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain='+ dotHostname +';path=/;';
+
+    let firstDot = hostname.indexOf('.');
+    let upperDomain = hostname.substring(firstDot);
+    let dotUpperDomain = "." + upperDomain;
+    document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain='+ upperDomain +';path=/;';
+    document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain='+ dotUpperDomain +';path=/;';
+}
+
+function deleteCookieFromDomain(cookie_name, domain) {
+    let dotDomain = "." + domain;
+    document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=' + domain + ';path=/;';
+    document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=' + dotDomain + ';path=/;';
 }
 
 function apmPreferencesUpdated(cookieStatus) {
