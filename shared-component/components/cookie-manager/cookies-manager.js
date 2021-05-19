@@ -153,8 +153,8 @@ function deleteCookieFromCurrentAndUpperDomain(cookie_name) {
     document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain='+ hostname +';path=/;';
     document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain='+ dotHostname +';path=/;';
 
-    let firstDot = hostname.indexOf('.');
-    let upperDomain = hostname.substring(firstDot);
+    let dots = hostname.split('.');
+    let upperDomain = dots[dots.length - 2] + '.' + dots[dots.length - 1];
     let dotUpperDomain = "." + upperDomain;
     document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain='+ upperDomain +';path=/;';
     document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain='+ dotUpperDomain +';path=/;';
