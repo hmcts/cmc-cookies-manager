@@ -24,6 +24,16 @@ function setCookiePreference() {
                                 + ',"apm:"' + getApmSelectedValue.value
                                 + '}', 365)
     document.getElementById("cookie-preference-success").classList.remove("govuk-visually-hidden");
+    if (document.getElementById('accept-all-cookies-successs')) {
+      document.getElementById('accept-all-cookies-success').classList.add('govuk-visually-hidden');
+    }
+    if (document.getElementById('reject-all-cookies-success')) {
+      document.getElementById('reject-all-cookies-success').classList.add('govuk-visually-hidden');
+    }
+    if (document.getElementById('cm_cookie_notification')) {
+      document.getElementById("cm_cookie_notification").classList.add("govuk-visually-hidden");
+    }
+
     manageAnalyticsCookies(getAnalyticsSelectedValue.value)
     manageAPMCookie(getApmSelectedValue.value)
 }
@@ -39,7 +49,7 @@ function setAcceptAllCookies() {
 function setRejectAllCookies() {
     setCookie('cookies_preferences_set', true, 365)
     setCookie('cookies_policy', '{"essential":true,"analytics":false,"apm":false}', 365)
-    document.getElementById("accept-all-cookies-success").classList.remove("govuk-visually-hidden");
+    document.getElementById("reject-all-cookies-success").classList.remove("govuk-visually-hidden");
     document.getElementById("cm_cookie_notification").classList.add("govuk-visually-hidden");
     manageAnalyticsCookies('false')
     manageAPMCookie('false')
