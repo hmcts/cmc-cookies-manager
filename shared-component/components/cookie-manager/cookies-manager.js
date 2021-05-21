@@ -122,7 +122,9 @@ function checkCookie() {
 }
 
 function manageAnalyticsCookies(cookieStatus) {
+  console.debug('manageAnalyticsCookies:: '+cookieStatus);
   if(cookieStatus === 'false') {
+    console.debug('Removing Analytics cookies');
     deleteCookie('_ga')
     deleteCookie('_gid')
     deleteCookie('_gat')
@@ -130,14 +132,9 @@ function manageAnalyticsCookies(cookieStatus) {
 }
 
 function manageAPMCookie(cookieStatus) {
-    if(cookieStatus === 'true') {
-      setAPMCookies('dtCookie','on')
-      setAPMCookies('dtLatC','on')
-      setAPMCookies('dtPC','on')
-      setAPMCookies('dtSa','on')
-      setCookie('rxVisitor','on', 365)
-      setAPMCookies('rxvt','on')
-    } else {
+    console.debug('manageAPMCookie:: '+cookieStatus);
+    if(cookieStatus === 'false') {
+      console.debug('Removing APM cookies');
       deleteCookie('dtCookie')
       deleteCookie('dtLatC')
       deleteCookie('dtPC')
@@ -155,6 +152,7 @@ function deleteCookie(cookie_name) {
 
 function deleteCookieWithoutDomain(cookie_name) {
     document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;';
+    console.debug('delete ' + cookie_name + ' without domain');
 }
 
 function deleteCookieFromCurrentAndUpperDomain(cookie_name) {
@@ -168,12 +166,8 @@ function deleteCookieFromCurrentAndUpperDomain(cookie_name) {
     let dotUpperDomain = "." + upperDomain;
     document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain='+ upperDomain +';path=/;';
     document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain='+ dotUpperDomain +';path=/;';
-}
 
-function deleteCookieFromDomain(cookie_name, domain) {
-    let dotDomain = "." + domain;
-    document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=' + domain + ';path=/;';
-    document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=' + dotDomain + ';path=/;';
+    console.debug('delete ' + cookie_name + ' in ' + upperDomain + ' and ' + dotUpperDomain);
 }
 
 function apmPreferencesUpdated(cookieStatus) {
@@ -183,9 +177,11 @@ function apmPreferencesUpdated(cookieStatus) {
     if(cookieStatus === 'true') {
       dtrum.enable();
       dtrum.enableSessionReplay();
+      console.debug('Session Replay is enabled for dynatrace');
     } else {
       dtrum.disableSessionReplay();
       dtrum.disable();
+      console.debug('Session Replay is disabled for dynatrace');
     }
   }
 }
