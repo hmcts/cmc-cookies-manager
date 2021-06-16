@@ -187,6 +187,6 @@ function apmPreferencesUpdated(cookieStatus) {
 }
 
 function removeFromLocalAndSessionStorage(cookie_name) {
-    window.localStorage.removeItem('''+cookie_name+''');
-    window.sessionStorage.removeItem('''+cookie_name+''');
+    window.localStorage.removeItem(cookie_name);
+    window.sessionStorage.removeItem(cookie_name);
 }
