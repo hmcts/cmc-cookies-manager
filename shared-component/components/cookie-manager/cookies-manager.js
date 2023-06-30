@@ -125,7 +125,7 @@ function manageAnalyticsCookies(cookieStatus) {
   if(cookieStatus === 'false') {
     deleteCookie('_ga')
     deleteCookie('_gid')
-    deleteCookie('_gat')
+    deleteCookie('_gat_UA-')
   }
 }
 

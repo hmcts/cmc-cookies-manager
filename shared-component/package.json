@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/hmcts/cmc-cookies-manager#readme",
   "dependencies": {
-    "govuk-frontend": "^3.11.0"
+    "govuk-frontend": "^4.6.0"
   },
   "devDependencies": {}
 }

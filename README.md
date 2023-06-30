@@ -14,7 +14,7 @@ preferences have been set.
 
 ## Dependencie / Prerequisites 
 
-* [govuk-frontend](https://www.npmjs.com/package/govuk-frontend) ^3.11.0
+* [govuk-frontend](https://www.npmjs.com/package/govuk-frontend) ^4.6.0
 
 ```bash
 npm install govuk-frontend --save
